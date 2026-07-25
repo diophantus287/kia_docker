@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  diario:
+    build: .
+    container_name: kia-web
+    restart: unless-stopped
+    volumes:
+      - ./data:/app/data
+    networks:
+      - web
+    ports:
+      - "8091:8080"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.diario.rule=Host(`kia.warein.me`)"
+      - "traefik.http.routers.diario.entrypoints=websecure"
+      - "traefik.http.routers.diario.tls.certresolver=myresolver"
+      - "traefik.http.services.diario.loadbalancer.server.port=8080"
+
+networks:
+  web:
+    external: true

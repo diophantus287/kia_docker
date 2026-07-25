@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Kia - Dashboard</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 24px; background: #f7f7f7; }
+    .topbar { display: flex; justify-content: space-between; align-items: center; }
+    .btn {
+      text-decoration: none; background: #1f6feb; color: white;
+      padding: 10px 16px; border-radius: 8px; font-weight: bold;
+    }
+    .card {
+      background: white; border-radius: 12px; padding: 16px; margin-top: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <h1>Kia - Resumen</h1>
+    <a class="btn" href="{{ url_for('datos') }}">DATOS</a>
+  </div>
+
+  <div class="card">
+    <h2>Km acumulados</h2>
+    <img src="data:image/png;base64,{{ grafico_km }}" alt="Gráfico km acumulados">
+  </div>
+
+  <div class="card">
+    <h2>Gasto mensual</h2>
+    <img src="data:image/png;base64,{{ grafico_gasto }}" alt="Gráfico gasto mensual">
+  </div>
+</body>
+</html>
