@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Kia - Nuevo registro</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 24px; background: #f7f7f7; }
+    .topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .btn {
+      text-decoration: none; background: #555; color: white;
+      padding: 10px 16px; border-radius: 8px; font-weight: bold;
+    }
+    .card {
+      max-width: 720px;
+      background: white; border-radius: 12px; padding: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    label { font-weight: bold; font-size: 14px; }
+    input {
+      width: 100%; padding: 8px; margin-top: 6px;
+      border: 1px solid #ccc; border-radius: 8px;
+    }
+    .full { grid-column: 1 / -1; }
+    .error {
+      background: #ffe8e8; color: #a40000; padding: 10px;
+      border-radius: 8px; margin-bottom: 12px;
+    }
+    .submit {
+      background: #1f6feb; color: white; border: 0;
+      padding: 10px 16px; border-radius: 8px; font-weight: bold; cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <h1>Nuevo registro</h1>
+    <a class="btn" href="{{ url_for('datos') }}">VOLVER</a>
+  </div>
+
+  <div class="card">
+    {% if error %}
+      <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <form method="post">
+      <div class="grid">
+        <div>
+          <label for="fecha">Fecha</label>
+          <input type="date" id="fecha" name="fecha" required>
+        </div>
+
+        <div>
+          <label for="km_totales">Km_totales</label>
+          <input type="number" step="0.01" id="km_totales" name="km_totales">
+        </div>
+
+        <div>
+          <label for="consumo_repostaje">Consumo_repostaje</label>
+          <input type="number" step="0.01" id="consumo_repostaje" name="consumo_repostaje">
+        </div>
+
+        <div>
+          <label for="consumo_total">Consumo_total</label>
+          <input type="number" step="0.01" id="consumo_total" name="consumo_total">
+        </div>
+
+        <div>
+          <label for="precio_l">Precio_L</label>
+          <input type="number" step="0.0001" id="precio_l" name="precio_l">
+        </div>
+
+        <div>
+          <label for="precio">Precio</label>
+          <input type="number" step="0.01" id="precio" name="precio">
+        </div>
+
+        <div class="full">
+          <button class="submit" type="submit">GUARDAR</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
