@@ -7,20 +7,18 @@
     body { font-family: Arial, sans-serif; margin: 24px; background: #f7f7f7; }
     .topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; gap: 10px; }
     .actions { display: flex; gap: 10px; }
-    .btn {
+    .btn, .btn-form {
       text-decoration: none; background: #555; color: white;
-      padding: 10px 16px; border-radius: 8px; font-weight: bold;
+      padding: 10px 16px; border-radius: 8px; font-weight: bold; border: 0; cursor: pointer;
     }
     .btn-add { background: #1f6feb; }
+    .btn-replot { background: #0a7f3f; }
     .card {
       background: white; border-radius: 12px; padding: 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      overflow-x: auto;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08); overflow-x: auto;
     }
     table.tabla-datos { width: 100%; border-collapse: collapse; }
-    table.tabla-datos th, table.tabla-datos td {
-      border: 1px solid #ddd; padding: 8px; text-align: center;
-    }
+    table.tabla-datos th, table.tabla-datos td { border: 1px solid #ddd; padding: 8px; text-align: center; }
     table.tabla-datos th { background: #f0f0f0; }
     table.tabla-datos tr:nth-child(even) { background: #fafafa; }
   </style>
@@ -30,6 +28,11 @@
     <h1>Kia - Datos CSV</h1>
     <div class="actions">
       <a class="btn btn-add" href="{{ url_for('nuevo') }}">AÑADIR DATOS</a>
+
+      <form method="post" action="{{ url_for('replotear') }}" style="display:inline;">
+        <button type="submit" class="btn-form btn-replot">REPLOTEAR</button>
+      </form>
+
       <a class="btn" href="{{ url_for('index') }}">VOLVER</a>
     </div>
   </div>

@@ -6,14 +6,8 @@
   <style>
     body { font-family: Arial, sans-serif; margin: 24px; background: #f7f7f7; }
     .topbar { display: flex; justify-content: space-between; align-items: center; }
-    .btn {
-      text-decoration: none; background: #1f6feb; color: white;
-      padding: 10px 16px; border-radius: 8px; font-weight: bold;
-    }
-    .card {
-      background: white; border-radius: 12px; padding: 16px; margin-top: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
+    .btn { text-decoration: none; background: #1f6feb; color: white; padding: 10px 16px; border-radius: 8px; font-weight: bold; }
+    .card { background: white; border-radius: 12px; padding: 16px; margin-top: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
     img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
   </style>
 </head>
@@ -25,12 +19,12 @@
 
   <div class="card">
     <h2>Km acumulados</h2>
-    <img src="data:image/png;base64,{{ grafico_km }}" alt="Gráfico km acumulados">
+    <img src="{{ km_plot_url }}" alt="Gráfico km acumulados">
   </div>
 
   <div class="card">
     <h2>Gasto mensual</h2>
-    <img src="data:image/png;base64,{{ grafico_gasto }}" alt="Gráfico gasto mensual">
+    <img src="{{ gasto_plot_url }}" alt="Gráfico gasto mensual">
   </div>
 </body>
 </html>
